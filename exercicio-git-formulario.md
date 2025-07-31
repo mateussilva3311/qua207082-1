@@ -38,14 +38,18 @@ Crie uma branch de desenvolvimento:
 git checkout -b desenvolvimento
 ```
 
-## 🟥 Seção 4 – Publicar no GitHub
-
+## 🟪 Seção 4 – Crie uma funcionalidade
 **Instrução:**  
-Conecte ao repositório remoto:
+Crie um arquivo app.js e adicione o seguinte conteúdo:
 
 ```bash
-git remote add origin https://github.com/seu-usuario/projeto-exercicio-git.git
-git push -u origin desenvolvimento
+console.log("Olá, mundo!");
+```
+
+Adicione e faça o commit:
+```bash
+git add app.js
+git commit -m "Adiciona arquivo app.js com saudação"
 ```
 
 ## 🟪 Seção 5 – Mesclar com a master
@@ -55,10 +59,19 @@ git push -u origin desenvolvimento
 ```bash
 git checkout master
 git merge desenvolvimento
-git push origin master
 ```
 
-## ⚠️ Seção 6 – Atualizações remotas
+## 🟥 Seção 6 – Publicar no GitHub
+
+**Instrução:**  
+Conecte ao repositório remoto:
+
+```bash
+git remote add origin https://github.com/seu-usuario/projeto-exercicio-git.git
+git push -u origin master
+```
+
+## ⚠️ Seção 7 – Atualizações remotas
 
 **Instrução:**  
 Edite o `README.md` diretamente no GitHub e use:
@@ -67,7 +80,7 @@ Edite o `README.md` diretamente no GitHub e use:
 git pull origin master
 ```
 
-## 🎯 Seção 7 – Desafio opcional (extra)
+## 🎯 Seção 8 – Desafio opcional (extra)
 
 **Instrução:**  
 Edite `app.js` em outra branch, gere um conflito com `master`, resolva e faça o merge.
