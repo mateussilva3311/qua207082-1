@@ -43,7 +43,7 @@ git checkout -b desenvolvimento
 Crie um arquivo app.js e adicione o seguinte conteúdo:
 
 ```bash
-console.log("Olá, mundo!");
+echo 'console.log("Olá, mundo!");' > app.js
 ```
 
 Adicione e faça o commit:
