@@ -14,6 +14,8 @@ Execute os comandos abaixo no terminal:
 mkdir projeto-exercicio-git
 cd projeto-exercicio-git
 git init
+git config --local user.name "Seu Nome"
+git config --local user.email "seuemail@gmail.com"
 ```
 
 ## 🟦 Seção 2 – Adicionar e commitar arquivos
