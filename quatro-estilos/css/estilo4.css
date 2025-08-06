@@ -1,4 +1,38 @@
 body{
     background-color: black;
     color: #84c754;
+    font: 100% "Courier New";
+}
+
+#top{
+    padding: 15px;
+}
+
+#top h1,  #top p{
+    margin: 0;
+}
+
+li:hover{
+    color: white;
+    cursor: pointer;
+}
+
+#menubar{
+    background-color: black;
+}
+
+#main{
+    margin: 15px;
+}
+
+.wrapper{
+    position: relative;
+}
+
+#sidebar{
+    background-color: red;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 320px;
 }
