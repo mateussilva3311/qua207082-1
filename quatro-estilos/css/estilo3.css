@@ -1,0 +1,40 @@
+body{ }
+#top{ }
+h1, h2, h3{ }
+li{ }
+ul{ }
+li:nth-child(3){ }
+li:hover{ }
+#sidebar{ }
+#bottom{ }
+#bottom p{ }
+a{ }
+/*
+background-color: #04AA6D;
+background-color: #555555;
+background-color: #f1f1f1;
+background-color: black;
+border: 1px solid #d4d4d4;
+color: #4CAF50;
+color: black;
+color: white;
+cursor: pointer;
+float: left;
+font: 100% Verdana;
+font-size: 70%;
+line-height: 14px;
+line-height: 26px;
+list-style-type: none;
+margin: 0px;
+margin: 20px;
+margin: 4px;
+overflow: auto;
+padding: 0;
+padding: 10px;
+padding: 2px;
+padding-left: 10px;
+padding-top: 1px;
+text-align: center;
+text-align: center;
+width: 165px;
+*/
