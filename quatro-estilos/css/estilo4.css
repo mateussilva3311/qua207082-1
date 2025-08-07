@@ -2,6 +2,7 @@ body{
     background-color: black;
     color: #84c754;
     font: 100% "Courier New";
+    line-height: 26px;
 }
 
 #top{
@@ -15,7 +16,7 @@ body{
 li:hover{
     color: white;
     cursor: pointer;
-}
+}   
 
 #menubar{
     background-color: black;
@@ -30,9 +31,47 @@ li:hover{
 }
 
 #sidebar{
-    background-color: red;
+    /*background-color: red;*/
     position: absolute;
     right: 0;
     top: 0;
     width: 320px;
+    color: white;
+    border: 2px solid white;
+    border-radius: 4px;
+    padding: 15px;
+    font-size: 80%;
+    line-height: 21px;
+}
+
+a{
+    color: white;
+}
+
+a:hover{
+    color: #84c754;
+}
+
+#bottom {
+    color: white;
+    border: 2px solid white;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 70%;
+    line-height: 14px;
+    margin: 15px;
+    text-align: center;
+}
+
+li:nth-child(4){
+    color: white;
+    font-weight: bold;
+}
+
+@media (max-width: 700px) {
+    #sidebar{
+        position: relative;
+        width: auto;
+        margin: 15px;
+    }
 }
