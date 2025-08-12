@@ -1,60 +1,72 @@
-body { }
-#top { }
-#top h1, #top p, ul { }
-li { }
-li:hover { }
-li:first-child { }
-ul { }
-#main { }
-#sidebar { }
-.wrapper { }
-#bottom { }
-#top, li, #sidebar, #bottom { }
-a{ }
-a:hover{ }
-#bottom p{ }
-
-/*
-background-color: #04AA6D;
-background-color: #04AA6D;
-background-color: #32a4e7;
-background-color: #f1f1f1;
-background-color: #f1f1f1;
-background-color: #ffffff;
-border: 1px solid #d4d4d4;
-border: 1px solid #d4d4d4;
-border-radius: 4px;
-bottom: 0;
-color: #ffffff;
-color: #ffffff;
-color: black;
-color: white;
-cursor: pointer;
-float: left;
-font: 100% "Lucida Sans", Verdana;
-font-size: 70%;
-font-weight: bold;
-line-height: 14px;
-line-height: 26px;
-list-style-type: none;
-margin: 0 210px;
-margin: 0;
-margin: 0px;
-margin: 20px;
-margin: 4px 0px;
-margin: 4px;
-padding: 0;
-padding: 10px 20px;
-padding: 10px;
-padding: 10px;
-padding: 15px;
-position: absolute;
-position: relative;
-right: 0;
-text-align: center;
-text-decoration: none;
-text-decoration: underline;
-top: 0;
-width: 180px;
-width: 200px;
-*/
+body {
+    font: 100% "Lucida Sans", Verdana;
+    line-height: 26px;
+    margin: 20px;
+}
+#top {
+    background-color: #04AA6D;
+    color: #ffffff;
+    padding: 15px;
+}
+#top h1, #top p, ul {
+    margin: 0;
+    padding: 0;
+}
+li {
+    background-color: #f1f1f1;
+    border: 1px solid #d4d4d4;
+    cursor: pointer;
+    list-style-type: none;
+    margin: 4px;
+}
+li:hover {
+    background-color: #ffffff;
+}
+li:first-child {
+    background-color: #04AA6D;
+    color: #ffffff;
+    font-weight: bold;
+}
+ul {
+    float: left;
+    width: 200px;
+}
+#main {
+    margin: 0 210px;
+    padding: 10px;
+}
+#sidebar {
+    background-color: #32a4e7;
+    color: #ffffff;
+    position: absolute;
+    width: 180px;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: 4px 0px;
+    padding: 10px;
+}
+.wrapper {
+    position: relative;
+}
+#bottom {
+    border: 1px solid #d4d4d4;
+    background-color: #f1f1f1;
+    font-size: 70%;
+    line-height: 14px;
+    padding: 10px 20px;
+    text-align: center;
+}
+#top, li, #sidebar, #bottom {
+    border-radius: 4px;
+}
+a{
+    color: black;
+    text-decoration: underline;
+}
+a:hover{
+    text-decoration: none;
+}
+#bottom p{   
+    margin: 0px;
+}
