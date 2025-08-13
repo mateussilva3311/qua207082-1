@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quatro Estilos</title>
     <link rel="stylesheet" href="./css/estilo1.css">
+    <link rel="stylesheet" href="./css/estilo2.css">
+    <link rel="stylesheet" href="./css/estilo3.css">
+    <link rel="stylesheet" href="./css/estilo4.css">
 </head>
 
 <body>
@@ -20,11 +23,11 @@
 
         <div id="menubar">
             <ul id="menulist">
-                <li>Folha de Estilo 01</li>
-                <li>Folha de Estilo 02</li>
-                <li>Folha de Estilo 03</li>
-                <li>Folha de Estilo 04</li>
-                <li>Sem Folha de Estilo</li>
+                <li onclick="estiloOn(0)" >Folha de Estilo 01</li>
+                <li onclick="estiloOn(1)" >Folha de Estilo 02</li>
+                <li onclick="estiloOn(2)" >Folha de Estilo 03</li>
+                <li onclick="estiloOn(3)" >Folha de Estilo 04</li>
+                <li onclick="estiloOff()" >Sem Folha de Estilo</li>
             </ul>
         </div>
 
@@ -36,16 +39,16 @@
                 podem alterar o layout da sua página HTML.
                 Você pode alterar o layout desta página selecionando diferentes
                 folhas de estilo no menu ou selecionando um dos seguintes links: <br>
-                <a href="#">Folha de Estilo 1</a> ,
-                <a href="#">Folha de Estilo 2</a> ,
-                <a href="#">Folha de Estilo 3</a> ,
-                <a href="#">Folha de Estilo 4</a> .
+                <a href="#" onclick="estiloOn(0)" >Folha de Estilo 1</a> ,
+                <a href="#" onclick="estiloOn(1)" >Folha de Estilo 2</a> ,
+                <a href="#" onclick="estiloOn(2)" >Folha de Estilo 3</a> ,
+                <a href="#" onclick="estiloOn(3)" >Folha de Estilo 4</a> .
             </p>
             <h2>Sem estilos</h2>
             <p>
                 Esta página usa elementos DIV para agrupar diferentes seções da página HTML.
                 Clique aqui para ver como a página fica sem folha de estilo: <br>
-                <a href="#">Sem folha de estilo</a>.
+                <a href="#" onclick="estiloOff()">Sem folha de estilo</a>.
             </p>
         </div>
 
@@ -71,6 +74,19 @@
             facilisi.
         </p>
     </div>
+    <script>
+        function estiloOff(){
+            document.styleSheets[0].disabled = true;
+            document.styleSheets[1].disabled = true;
+            document.styleSheets[2].disabled = true;
+            document.styleSheets[3].disabled = true;
+        }
+        function estiloOn(n){
+            estiloOff();
+            document.styleSheets[n].disabled = false;
+        }
+        estiloOn(0);
+    </script>
 </body>
 
 </html>
