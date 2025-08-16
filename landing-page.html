@@ -37,7 +37,7 @@
 
         #principal p{
             padding-top: 20px;
-            width: 400px;
+            max-width: 400px;
             margin: auto;
         }
 
@@ -49,6 +49,7 @@
         #lista {
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
         #lista .caixa{
@@ -80,9 +81,24 @@
             color: white;
             text-align: end;
         }
+
+        body{
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        #conteiner{
+            display: flex;
+            height: 100vh;
+            flex-direction: column;
+            justify-content: space-between;
+        }
     </style>
 </head>
 <body>
+
+    <div id="conteiner">
+    <div id="grupo01">
     <header>
         <h1>Minha Marca</h1>
         <nav>
@@ -112,6 +128,10 @@
             <p>Seus dados estão protegidos com criptografia de ponta.</p>
         </div>
     </section>
+
+    </div>
+    <div id="grupo02">
+
     <section id="depoimentos">
         <h2>O que nossos clientes dizem</h2>
         <p>"Mudou completamente minha forma de trabalhar. Recomendo!"</p>
@@ -120,5 +140,9 @@
     <footer>
         &copy; 2025 MinhaMarca - Todos os direitos reservados.
     </footer>
+
+    </div> 
+    </div>
+
 </body>
 </html>
