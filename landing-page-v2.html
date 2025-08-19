@@ -27,6 +27,39 @@
             padding: 10px 15px;
             margin: 0px 2px;
         }
+
+        #principal{
+            display: flex;
+        }
+
+        #principal div{
+            width: 50%;
+            margin: 30px;
+            text-align: left;
+        }
+
+        #principal h2{
+            font-size: 200%;
+        }
+
+        #principal p{
+            margin-top: 20px;
+            font-size: 90%;
+        }
+
+        #principal button{
+            padding: 20px;
+            margin: 30px 0px;
+            width: 300px;
+            background-color: gray;
+            border: 2px solid black;
+            font-weight: bold;
+        }
+
+        #principal iframe{
+            width: 100%;
+            height: 100%;
+        }
     </style>
 </head>
 <body>
@@ -38,6 +71,15 @@
             <a href="#">C</a>
         </nav>
     </header>
-
+    <section id="principal">
+        <div>
+            <h2>What is Lorem Ipsum?</h2>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+            <button>CTA Button</button>
+        </div>
+        <div>
+            <iframe src="https://www.youtube.com/embed/tNobiwuAaAg?si=i2CUHtTka1ab2uEf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </section>
 </body>
 </html>
