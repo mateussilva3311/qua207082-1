@@ -72,6 +72,35 @@
             background-color: gray;
             margin: 10px;
         }
+        #noticias {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .noticias {
+            width: 300px;
+            margin: 30px;
+
+        }
+        .noticias div {
+            border: 2px solid black;
+            border-radius: 100%;
+            float: left;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 10px;
+        }
+        .noticias h3 {
+            font-size: xx-large;
+        }
+        .noticias p {
+            margin-top: 5px;
+        }
+
+
     </style>
 </head>
 <body>
@@ -86,11 +115,15 @@
     <section id="principal">
         <div>
             <h2>What is Lorem Ipsum?</h2>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's 
+                standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to 
+                make a type specimen book.</p>
             <button>CTA Button</button>
         </div>
         <div>
-            <iframe src="https://www.youtube.com/embed/tNobiwuAaAg?si=i2CUHtTka1ab2uEf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/tNobiwuAaAg?si=i2CUHtTka1ab2uEf" title="YouTube video player" frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
     </section>
     <section id="carrossel">
@@ -99,5 +132,42 @@
         <div></div>
         <div></div>
     </section>
+
+    <section id="noticias">
+        <div class="noticias">
+            <div>1</div>
+            <h3>Lorem Ipsum</h3>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+        </div>
+        <div class="noticias">
+            <div>2</div>
+            <h3>Lorem Ipsum</h3>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+        </div>
+        <div class="noticias">
+            <div>3</div>
+            <h3>Lorem Ipsum</h3>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+        </div>
+        <div class="noticias">
+            <div>4</div>
+            <h3>Lorem Ipsum</h3>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+        </div>
+        <div class="noticias">
+            <div>5</div>
+            <h3>Lorem Ipsum</h3>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+        </div>
+        <div class="noticias">
+            <div>6</div>
+            <h3>Lorem Ipsum</h3>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+        </div>
+
+    </section>
+
+        
+        
 </body>
 </html>
