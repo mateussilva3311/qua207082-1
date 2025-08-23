@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minha Marca</title>
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
             text-decoration: none;
             border: none;
         }
 
-        header{
+        header {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -21,14 +22,14 @@
             border: 1px solid black;
         }
 
-        header h1{
+        header h1 {
             padding: 10px;
             text-align: center;
         }
-        
+
 
         nav a {
-             color: white;
+            color: white;
             padding: 10px 15px;
             margin: 0px 2px;
         }
@@ -36,35 +37,40 @@
         #principal {
             display: flex;
         }
+
         #principal div {
             width: 50%;
             margin: 30px;
             text-align: left;
         }
-            
 
-        #principal h2{
+
+        #principal h2 {
             padding-top: 45px;
             padding-bottom: 20px;
             text-align: center;
         }
 
-        #principal p{
+        #principal p {
             padding-top: 20px;
             max-width: 400px;
             margin: auto;
         }
 
-        #principal button{
+        #principal button {
             padding: 20px;
             margin: 30px 135px;
             width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: orangered;
+            color: white;
         }
 
-        #principal button:hover{
+        #principal button:hover {
             cursor: pointer;
-            box-shadow: 3px 3px 6px gray;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
+
         #principal iframe {
             width: 100%;
             height: 100%;
@@ -76,47 +82,54 @@
             flex-wrap: wrap;
         }
 
-        #lista .caixa{
+        #lista .caixa {
             background-color: #ff6b3a;
             width: 200px;
-            margin: 20px;            
+            margin: 20px;
             padding: 20px;
             border-radius: 5px;
             text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        .caixa h3{
+        #lista .caixa:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+        }
+
+        .caixa h3 {
             padding-bottom: 10px;
 
         }
 
-        #depoimentos{
+        #depoimentos {
             text-align: center;
             background-color: #ff6b3a;
             padding: 10px;
         }
 
-        #depoimentos *{
+        #depoimentos * {
             padding: 10px;
         }
 
-        footer{
+        footer {
             background-color: orangered;
             color: white;
             text-align: end;
         }
 
-        body{
+        body {
             max-width: 1300px;
             margin: auto;
-            border: solid 1px black;
         }
 
-        #conteiner{
+        #conteiner {
             display: flex;
-            height: 100vh;
+            height: 153vh;
             flex-direction: column;
             justify-content: space-between;
+            border: solid 1px black;
+            background-color: #fdf0d5;
         }
 
         #carrossel {
@@ -140,7 +153,7 @@
             height: 130px;
             min-width: 199px;
             margin: 10px;
-            border: 1px solid black;
+
         }
 
         #bt-left,
@@ -156,7 +169,12 @@
             height: 100%;
             object-fit: cover;
         }
-        
+
+        img:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
+
         h4 {
             display: flex;
             justify-content: center;
@@ -166,105 +184,238 @@
             font-weight: bold;
             font-size: 300%;
         }
-        
+
+        hr {
+            border: 1px solid #c2c2c2;
+            width: 80%;
+            margin: auto;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            border: 2px solid #ccc;
+            border-radius: 25px;
+            padding: 5px 10px;
+            width: 300px;
+        }
+
+        .search-box input[type="search"] {
+            border: none;
+            outline: none;
+            flex: 1;
+            padding: 8px;
+            font-size: 14px;
+            border-radius: 25px;
+        }
+
+        .search-box button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            color: orangered;
+            font-size: 20px;
+        }
+
+        #criar-perfil {
+            background: #fff;
+            padding: 20px;
+            max-width: 400px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-family: Arial, sans-serif;   
+        }
+
+        #criar-perfil h2 {
+            text-align: center;
+            color: orangered;
+            margin-bottom: 20px;
+        }
+
+        #criar-perfil label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        #criar-perfil input{
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+            transition: 0,3s;
+        }
+
+        #criar-perfil input:focus {
+            border-color: orangered;
+            box-shadow: 0 0 5px rgba(255, 105, 180, 0.5);
+        }
+
+        #criar-perfil button {
+            width: 100%;
+            padding: 10px;
+            background-color: orangered;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
 </head>
+
 <body>
 
     <div id="conteiner">
-    <div id="grupo01">
-    <header>
-        <h1>RENER DA SHOPE</h1>
-        <nav>
-            <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
-            <a href="#"><i class="fa-solid fa-circle-user"></i></a>
-            <a href="#"><i class="fa-solid fa-list"></i></a>
-        </nav>
-    </header>
-    <section id="principal">
-        <div>
-        <h2>mude seu estilo sem ficar sem grana</h2>
-        <p> no nosso site vocâ encontra tudo que precisa para mudar seu estilo de forma rápida facil e segura. 
-            Temos uma variedade de produtos que atendem a todos os gostos e estilos, desde roupas casuais até acessórios elegantes.</p>
-        <button>conheça nossos produtos</button>
-        </div>
-        <div>
-            <iframe src="https://www.youtube.com/embed/vzHL_PFO740?si=CRUzQnYKmFGkfqkj" title="YouTube video player" 
-            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
+        <div id="grupo01">
+            <header>
+                <h1>RENER DA SHOPE</h1>
+
+                <form action="#" method="GET" class="search-box">
+                    <input type="search" name="q" placeholder="buscas produto...">
+                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+
+                <nav>
+                    <a href="#" onclick="mostrarFormulario()">
+                        <i class="fa-solid fa-circle-user"></i>
+                    </a>
+                    <a href="#"><i class="fa-solid fa-list"></i></a>
+                </nav>
+            </header>
 
 
-    </section>
-        <h4>MAIS VENDIDOS</h4>
-     <section id="carrossel">
-        
-        <div id="bt-left" onclick="carrossel(-1)">
-            <i class="fa-solid fa-angle-left"></i>
-        </div>
-        <div id="gira">
-            <div id="carrossel-container">
-                <div class="img"><img src="https://riacci.cdn.magazord.com.br/img/2022/10/blog/1157/garoto-saindo-de-casa-com-roupas-de-inverno.jpeg" alt=""></div>
-                <div class="img"><img src="https://imagens.ne10.uol.com.br/veiculos/_midias/jpg/2024/06/07/597x330/1_roupa_de_academia_homem__1_-27250906.jpg?20240608070152" alt=""></div>
-                <div class="img"><img src="https://blog.taco.com.br/wp-content/uploads/2020/12/verao_a.jpg" alt=""></div>
-                <div class="img"><img src="https://blog.malwee.com.br/wp-content/uploads/2025/03/30.01_BLOG_CORPO-01.jpg" alt=""></div>
-                <div class="img"><img src="https://newr7-r7-prod.web.arc-cdn.net/resizer/v2/2RDOCFHZIJC2PJNWXUOWG2O7TY.jpg?auth=7a17115e64e2e70a444fb734bcba94f131f72414fd7a61a8e9a6074ca5c3ea89&width=1920&height=1080" alt=""></div>
-                <div class="img"><img src="https://cdn.shopify.com/s/files/1/0222/0104/0992/files/O_que_e_streetwear_e_o_que_significado_de_street_wear_-_diferentes_formas_de_manifestacao_pelo_mundo_66cb3a6e-82f2-49bb-9b5a-f48be7d654a6.png?v=1614096145" alt=""></div>
+            <section id="criar-perfil" style="display: nome;">
+                <h2>criar seu perfil</h2>
+                <form>
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" required>
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" name="senha" required>
+
+                    <input type="submit" value="Enviar">
+                    <button type="submit">criar perfil</button>
+                </form>
+            </section>
+
+            <section id="principal">
+                <div>
+                    <h2>mude seu estilo sem ficar sem grana</h2>
+                    <p> no nosso site vocâ encontra tudo que precisa para mudar seu estilo de forma rápida facil e
+                        segura.
+                        Temos uma variedade de produtos que atendem a todos os gostos e estilos, desde roupas casuais
+                        até acessórios elegantes.</p>
+                    <a href="https://shopee.com.br/?uls_trackid=53gvpj0701gi&utm_campaign=id_LgUrEmTY2s&utm_content=----&utm_medium=affiliates&utm_source=an_18325280730&utm_term=div4x5dpt7pj"
+                        target="_blank">
+                        <button>conheça nossos produtos</button>
+                    </a>
+                </div>
+                <div>
+                    <iframe src="https://www.youtube.com/embed/vzHL_PFO740?si=CRUzQnYKmFGkfqkj"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </section>
+
+            <hr>
+
+            <div class="mais vendidos">
+                <h4>MAIS VENDIDOS</h4>
             </div>
-        </div>
-        <div id="bt-right" onclick="carrossel(1)">
-            <i class="fa-solid fa-angle-right"></i>
-        </div>
-    </section>
 
-    <section id="lista">
-        <div class="caixa">
-            <h3>Entrega Rápido</h3>
-            <p>Nossas entregas são feitas por nosso proprios entregado</p>
-        </div>
-        <div class="caixa">
-            <h3>Frete gratis</h3>
-            <p>Já não basta nosso preços super em conta, aqui você recebe seus produtos sem pagar nada</p>
-        </div>
-        <div class="caixa">
-            <h3>Entrega pontual</h3>
-            <p>Pontualidade é nosso forte, sua entrega chegara no maximo em uma semana, e no horario de sua preferencia</p>
-        </div>
-        <div class="caixa">
-            <h3>Retirada presencial</h3>
-            <p>Você pode retira seu produto na loja mais proxima de você</p>
-        </div>
-        <div class="caixa">
-            <h3>Pagamento Seguro</h3>
-            <p>Pagamentos seguros com criptografia de ponta a ponta.</p>
-        </div>
+            <section id="carrossel">
 
-        <div class="caixa">
-            <h3>Suporte 24/7</h3>
-            <p>Nosso suporte está disponível 24 horas por dia, 7 dias por semana, para ajudar você com qualquer dúvida ou problema.</p>
+                <div id="bt-left" onclick="carrossel(-1)">
+                    <i class="fa-solid fa-angle-left"></i>
+                </div>
+                <div id="gira">
+                    <div id="carrossel-container">
+                        <div class="img"><img
+                                src="https://riacci.cdn.magazord.com.br/img/2022/10/blog/1157/garoto-saindo-de-casa-com-roupas-de-inverno.jpeg"
+                                alt=""></div>
+                        <div class="img"><img
+                                src="https://imagens.ne10.uol.com.br/veiculos/_midias/jpg/2024/06/07/597x330/1_roupa_de_academia_homem__1_-27250906.jpg?20240608070152"
+                                alt=""></div>
+                        <div class="img"><img src="https://blog.taco.com.br/wp-content/uploads/2020/12/verao_a.jpg"
+                                alt=""></div>
+                        <div class="img"><img
+                                src="https://blog.malwee.com.br/wp-content/uploads/2025/03/30.01_BLOG_CORPO-01.jpg"
+                                alt=""></div>
+                        <div class="img"><img
+                                src="https://newr7-r7-prod.web.arc-cdn.net/resizer/v2/2RDOCFHZIJC2PJNWXUOWG2O7TY.jpg?auth=7a17115e64e2e70a444fb734bcba94f131f72414fd7a61a8e9a6074ca5c3ea89&width=1920&height=1080"
+                                alt=""></div>
+                        <div class="img"><img
+                                src="https://cdn.shopify.com/s/files/1/0222/0104/0992/files/O_que_e_streetwear_e_o_que_significado_de_street_wear_-_diferentes_formas_de_manifestacao_pelo_mundo_66cb3a6e-82f2-49bb-9b5a-f48be7d654a6.png?v=1614096145"
+                                alt=""></div>
+                    </div>
+                </div>
+                <div id="bt-right" onclick="carrossel(1)">
+                    <i class="fa-solid fa-angle-right"></i>
+                </div>
+            </section>
+
+            <hr>
+
+            <section id="lista">
+                <div class="caixa">
+                    <h3>Entrega Rápido</h3>
+                    <p>Nossas entregas são feitas por nosso proprios entregado</p>
+                </div>
+                <div class="caixa">
+                    <h3>Frete gratis</h3>
+                    <p>Já não basta nosso preços super em conta, aqui você recebe seus produtos sem pagar nada</p>
+                </div>
+                <div class="caixa">
+                    <h3>Entrega pontual</h3>
+                    <p>Pontualidade é nosso forte, sua entrega chegara no maximo em uma semana, e no horario de sua
+                        preferencia</p>
+                </div>
+                <div class="caixa">
+                    <h3>Retirada presencial</h3>
+                    <p>Você pode retira seu produto na loja mais proxima de você</p>
+                </div>
+                <div class="caixa">
+                    <h3>Pagamento Seguro</h3>
+                    <p>Pagamentos seguros com criptografia de ponta a ponta.</p>
+                </div>
+
+                <div class="caixa">
+                    <h3>Suporte 24/7</h3>
+                    <p>Nosso suporte está disponível 24 horas por dia, 7 dias por semana, para ajudar você com qualquer
+                        dúvida ou problema.</p>
+                </div>
+
+
+            </section>
+
+
+
+
         </div>
+        <div id="grupo02">
 
-        
-    </section>
+            <section id="depoimentos">
+                <h2>O que nossos clientes dizem</h2>
+                <p>"roupas de otima qualidade, recomando de mais"</p>
+                <p>"Excelente atendimento e entrega super rápida"</p>
+            </section>
+            <footer>
+                &copy; 2025 rener da shope - Todos os direitos reservados.
+            </footer>
 
-   
-    
 
-    </div>
-    <div id="grupo02">
-
-    <section id="depoimentos">
-        <h2>O que nossos clientes dizem</h2>
-        <p>"roupas de otima qualidade, recomando de mais"</p>
-        <p>"Excelente atendimento e entrega super rápida"</p>
-    </section>
-    <footer>
-        &copy; 2025 rener da shope - Todos os direitos reservados.
-    </footer>
-    
-
-    </div> 
+        </div>
     </div>
     <script>
         const imgs = document.getElementById("carrossel-container");
@@ -276,6 +427,12 @@
             if (idx >= img.length - 4) idx = img.length - 4;
             imgs.style.transform = `translateX(${-idx * 220}px)`;
         }
+
+        function mostrarFormulario() {
+            let form = document.getElementById("criar-perfil");
+            form.style.display = (form.style.display === "none") ? "block" : "none";
+        }
     </script>
 </body>
+
 </html>
