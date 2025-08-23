@@ -218,6 +218,7 @@
             font-size: 20px;
         }
 
+        /*
         #criar-perfil {
             background: #fff;
             padding: 20px;
@@ -266,6 +267,83 @@
             font-size: 16px;
             transition: 0.3s;
         }
+        
+        #criar-perfil button:hover {
+            background-color: #cc000f
+        }
+            */
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-conteodo {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 350px;
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            animation: aparecer 0.3s ease;
+        }
+
+        .feichar {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 22px;
+            cursor: pointer;
+            color: #555;
+        }
+
+        .modal-conteodo form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal-conteodo input {
+            margin-bottom: 12px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .modal-conteodo button {
+            padding: 12px;
+            background-color: orangered;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bolder;
+            transition: 0.3s;
+        }
+
+        .modal-conteodo button:hover {
+            background-color: #cc000f;
+        }
+
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+                transform: scale(0.7);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
 </head>
@@ -283,14 +361,34 @@
                 </form>
 
                 <nav>
-                    <a href="#" onclick="mostrarFormulario()">
-                        <i class="fa-solid fa-circle-user"></i>
+                    <a href="#" onclick="abrirModal()">
+                        <i class="fa-solid fa-circle-user" style="font-size: 24px; color :white;"></i>
                     </a>
                     <a href="#"><i class="fa-solid fa-list"></i></a>
                 </nav>
             </header>
 
+            <!--modal de login e cadastro-->
+            <div id="modal-pefil" class="modal">
+                <div class="modal-conteodo">
+                    <span class="fechar" onclick="fecharModal()">&times;</span>
+                    <h2>criar seu perfil</h2>
+                    <form>
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
 
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Digite seu email" required>
+
+                        <label for="senha">Senha</label>
+                        <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+
+                        <button type="submit">criar perfil</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Formulário de criação de perfil (inicialmente oculto) 
             <section id="criar-perfil" style="display: nome;">
                 <h2>criar seu perfil</h2>
                 <form>
@@ -307,6 +405,7 @@
                     <button type="submit">criar perfil</button>
                 </form>
             </section>
+            -->
 
             <section id="principal">
                 <div>
@@ -427,11 +526,27 @@
             if (idx >= img.length - 4) idx = img.length - 4;
             imgs.style.transform = `translateX(${-idx * 220}px)`;
         }
+        /*
+                function mostrarFormulario() {
+                    let form = document.getElementById("criar-perfil");
+                    form.style.display = (form.style.display === "none") ? "block" : "none";
+                }
+                    */
 
-        function mostrarFormulario() {
-            let form = document.getElementById("criar-perfil");
-            form.style.display = (form.style.display === "none") ? "block" : "none";
+        function abrirModal() {
+            document.getElementById("modal-pefil").style.display = "flex"
         }
+        function fecharModal() {
+            document.getElementById("modal-pefil").style.display = "none"
+                    }
+
+        window.onclick = function (event) {
+            let modal = document.getElementById("modal-pefil");
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+
     </script>
 </body>
 
