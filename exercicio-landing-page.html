@@ -273,6 +273,32 @@
         }
             */
 
+        .manu-categorias {
+            display: none;
+            background-color: #d32f2f;
+            padding: 10px;
+        }
+
+        .manu-categorias ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .manu-categorias li{
+            margin: 10px 0;
+        }
+        
+        .manu-categorias a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .manu-categorias a:hover {
+            color: #ffe082;
+        }
+
         .modal {
             display: none;
             position: fixed;
@@ -364,8 +390,21 @@
                     <a href="#" onclick="abrirModal()">
                         <i class="fa-solid fa-circle-user" style="font-size: 24px; color :white;"></i>
                     </a>
-                    <a href="#"><i class="fa-solid fa-list"></i></a>
+                    <a href="#" class="btn-menu" onclick="toggleManu()">
+                        <i class="fa-solid fa-list" style="font-size: 24px; color :white;"></i>
+                    </a>
+
+                    <div id="manu-categorias" class="menu-categorias">
+                        <ul>
+                            <li><a href="#">Masculino</a></li>
+                            <li><a href="#">Feminino</a></li>
+                            <li><a href="#">Infantil</a></li>
+                            <li><a href="#">Acessórios</a></li>
+                            <li><a href="#">Promoções</a></li>
+                        </ul>
+                    </div>
                 </nav>
+
             </header>
 
             <div id="modal-pefil" class="modal">
@@ -544,6 +583,15 @@
             let modal = document.getElementById("modal-pefil");
             if (event.target === modal) {
                 modal.style.display = "none";
+            }
+        }
+
+        function toggleManu() {
+            const manu = document.getElementById("manu-categorias");
+            if (manu.style.display === "block") {
+                manu.style.display = "none";
+            } else {
+                manu.style.display = "block";
             }
         }
 
