@@ -273,6 +273,11 @@
         }
             */
 
+        #modal-pefil {
+            display: none;
+            
+        }
+
         .manu-categorias {
             display: none;
             background-color: #d32f2f;
@@ -302,7 +307,6 @@
         .modal {
             display: none;
             position: fixed;
-            z-index: 100;
             left: 0;
             top: 0;
             width: 100%;
@@ -311,6 +315,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            
         }
 
         .modal-conteodo {
@@ -387,6 +392,7 @@
                 </form>
 
                 <nav>
+                    
                     <a href="#" onclick="abrirModal()">
                         <i class="fa-solid fa-circle-user" style="font-size: 24px; color :white;"></i>
                     </a>
@@ -573,14 +579,14 @@
                     */
 
         function abrirModal() {
-            document.getElementById("modal-pefil").style.display = "flex"
+            document.getElementById("modal-perfil").style.display = "flex"
         }
         function fecharModal() {
-            document.getElementById("modal-pefil").style.display = "none"
+            document.getElementById("modal-perfil").style.display = "none"
         }
 
         window.onclick = function (event) {
-            let modal = document.getElementById("modal-pefil");
+            let modal = document.getElementById("modal-perfil");
             if (event.target === modal) {
                 modal.style.display = "none";
             }
