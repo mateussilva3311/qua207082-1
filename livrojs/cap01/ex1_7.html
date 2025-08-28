@@ -1,9 +1,7 @@
 <meta charset="utf-8">
 <script> 
-  const jantar = Number(prompt("digite o valor do jantar:"))  
-  const taxa = jantar*0.1
-  const total = jantar + taxa
-  alert(` valor do jantar é de R$: ${jantar}`) 
-  alert(` a Taxa do Garçom é de R$: ${taxa}`) 
-  alert(` total a pagar é de R$: ${total}`) 
+ const ndias = Number(prompt("nº de dias: "))
+  const nhoras = Number(prompt("nº de horas: "))
+  const thoras = (ndias * 24 + nhoras)
+  alert(`O total de horas é ${thoras}`)
 </script>
