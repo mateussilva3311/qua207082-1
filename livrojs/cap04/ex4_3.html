@@ -1,0 +1,21 @@
+<script>
+    const bairro = prompt('bairro de entrega:');
+    let taxadeentrega;
+    switch (bairro) {
+        case "taguatinga":
+            taxadeentrega = 5.00;
+                        
+            break;
+            case "ceilandia":
+            taxadeentrega = 7.00;
+            break;
+            case "guara":
+            taxadeentrega = 10.00;
+            break;
+    
+        default:
+            taxadeentrega = 8.00;
+            break;
+    }
+    alert("taxa de entrega : R$ " + taxadeentrega.toFixed(2));
+</script>
