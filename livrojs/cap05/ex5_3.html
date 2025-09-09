@@ -1,0 +1,20 @@
+<script>
+    let num
+    do {
+        num = Number(prompt('numero:'))
+        if (num == 0 || isNaN(num)) {
+            alert("digite um numero valido...")
+        }
+    } while (num == 0 || isNaN(num));
+    let pares = `pares entre 1 e ${num}: `
+    for (let i = 2; i <= num; i += 2) {
+        pares += `${i}`
+    }
+    alert(pares)
+
+    let impares = `impares entre 1 e ${num}: `
+    for (let i = 1; i <= num; i += 2) {
+        impares += `${i}`
+    }
+    alert(impares)
+</script>
