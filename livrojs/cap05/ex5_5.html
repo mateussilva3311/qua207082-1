@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exemplo 5.5</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="icon" href="img/livrojs.png" type="image/png">
+</head>
+
+<body>
+    <img src="img/ex5_5.jpg" alt="numeros" class="alta">
+    <h1>programa contas do mês</h1>
+    <form>
+        <p>
+            descrição da conta:
+            <input type="text" id="inDescricao" required>
+        </p>
+        <p>
+            valor a pagar:
+            <input type="number" min="0" step="0.01" id="inValor">
+        </p>
+        <input type="submit" value="registrar conta">
+        <input type="reset" value="limpar">
+    </form>
+    <pre id="outResp1"></pre>
+    <pre id="outResp2"></pre>
+    <script src="js/ex5_5.js"></script>
+</body>
+
+</html>
