@@ -10,15 +10,16 @@ frm.addEventListener("submit", (e) => {
 
     for(let i = 1; i <= numero/2; i++){
         if(numero % i == 0){
-
+            soma += i
+            divisores +=`${i},`
         }
 
     }
     if(soma == numero){
-        resp1.innerText = `Divisore de ${numero}: ${divisores} (soma: ${numero})`
+        resp1.innerText = `Divisore de ${numero}: ${divisores} (soma: ${soma})`
         resp2.innerText = `${numero} É um numero perfeito`
     }else{
-        resp1.innerText = `Divisore de ${numero}: ${divisores} (soma: ${numero})`
+        resp1.innerText = `Divisore de ${numero}: ${divisores} (soma: ${soma})`
         resp2.innerText = `${numero} NÃO é um numero perfeito`
     }
    
