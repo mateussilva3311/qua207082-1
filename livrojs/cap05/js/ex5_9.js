@@ -1,10 +1,17 @@
 const prompt = require("prompt-sync")()
-const produto = prompt("produto")
-const num = Number(prompt("nº da Etiqueta"))
-for(let i = 1; i <= num/2; i++){
-    console.log(`${produto.padEnd(30,'-')} ${produto.padEnd(30,'-')}`)
-
+const produto = prompt("Produto: ")
+const num = Number(prompt("Nº de Etiquetas: "))
+const eLinha = Number(prompt("Nº de Etiquetas por linha: "))
+// Cria um laço de repetição até num/2
+for(let i = 1; i < num/eLinha; i++){
+    let linha = ""
+    for(let j = 1; j <= eLinha; j++){
+        linha += `${produto.padEnd(30,'.')}` 
+    }
+    console.log(linha)
 }
-if(num%2 == 1){//se quantidade de etiquetas for impar
-    console.log(produto.padEnd(30,'-')) //imprime mais uma etiqueta
+let linha = ""
+for(let j = 1; j <= num%eLinha; j++){
+    linha += `${produto.padEnd(30,'.')}` 
 }
+console.log(linha)
