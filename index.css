@@ -1,0 +1,80 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Variáveis gamer */
+:root {
+  --neon-green: #39ff14;
+  --roxo: #a600ff;
+  --azul: #00d9ff;
+  --fundo: #0c0c12; /* fundo bem escuro */
+  --texto: #e0e0e0;
+}
+
+body {
+  background-color: var(--fundo);
+  font-family: "Courier New", monospace;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--texto);
+}
+
+/* Títulos com vibe gamer */
+h1, h2 {
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 8px var(--neon-green), 0 0 15px var(--azul);
+}
+
+h1 {
+  border-bottom: 2px solid var(--neon-green);
+  padding: 8px;
+}
+
+/* Container futurista */
+#exemplos {
+  background: rgba(255, 255, 255, 0.05);
+  width: 85%;
+  margin: 25px auto;
+  padding: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(57, 255, 20, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(57, 255, 20, 0.3);
+}
+
+/* Botões gamer */
+#exemplos a {
+  border: 2px solid var(--neon-green);
+  padding: 14px 26px;
+  border-radius: 12px;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--neon-green);
+  background: linear-gradient(135deg, var(--roxo), var(--azul));
+  background-size: 300% 300%;
+  background-position: left;
+  box-shadow: 0 0 15px var(--roxo), inset 0 0 10px rgba(0,0,0,0.5);
+  transition: background-position 0.6s ease,
+              transform 0.3s ease,
+              box-shadow 0.4s ease,
+              color 0.3s ease;
+}
+
+#exemplos a:hover {
+  background-position: right;
+  transform: scale(1.12) rotate(-1deg);
+  box-shadow: 0 0 25px var(--neon-green), 0 0 45px var(--azul);
+  color: white;
+}
