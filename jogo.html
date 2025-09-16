@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casino Number</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --neon-green: #39ff14;
+      --roxo: #a600ff;
+      --azul: #00d9ff;
+      --dourado: #ffd700;
+      --texto: #e0e0e0;
+    }
+
+    body {
+      font-family: "Press Start 2P", cursive;
+      color: var(--texto);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      padding: 20px;
+      text-align: center;
+
+      background: linear-gradient(270deg, #0c0c12, #1a1a2e, #0c0c12);
+      background-size: 600% 600%;
+      animation: backgroundMove 12s ease infinite;
+    }
+
+    @keyframes backgroundMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      color: var(--neon-green);
+      text-shadow: 0 0 10px var(--neon-green), 0 0 20px var(--azul);
+      margin: 20px 0;
+      animation: neonBlink 1.5s infinite alternate;
+    }
+
+    @keyframes neonBlink {
+      from { text-shadow: 0 0 8px var(--neon-green), 0 0 15px var(--azul); }
+      to   { text-shadow: 0 0 25px var(--dourado), 0 0 40px var(--roxo); }
+    }
+
+    form {
+      position: relative;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 25px;
+      border-radius: 20px;
+      border: 4px solid var(--dourado);
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
+      display: inline-block;
+      overflow: hidden;
+    }
+
+    form::before {
+      content: "";
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      right: -4px;
+      bottom: -4px;
+      border-radius: 20px;
+      background: repeating-linear-gradient(
+        90deg,
+        var(--dourado) 0,
+        var(--dourado) 10px,
+        transparent 10px,
+        transparent 20px
+      );
+      background-size: 40px 40px;
+      animation: marquee 2s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes marquee {
+      0% { background-position: 0 0; }
+      100% { background-position: 40px 0; }
+    }
+
+    input[type="number"] {
+      background: #111;
+      border: 2px solid var(--azul);
+      border-radius: 8px;
+      color: var(--texto);
+      padding: 10px;
+      font-size: 1rem;
+      width: 120px;
+      text-align: center;
+      box-shadow: 0 0 8px var(--azul);
+      outline: none;
+    }
+
+    input[type="number"]:focus {
+      border-color: var(--neon-green);
+      box-shadow: 0 0 12px var(--neon-green);
+    }
+
+    input[type="submit"] {
+      background: linear-gradient(135deg, var(--roxo), var(--azul));
+      border: 2px solid var(--neon-green);
+      border-radius: 10px;
+      color: var(--neon-green);
+      padding: 12px 24px;
+      margin-top: 15px;
+      cursor: pointer;
+      box-shadow: 0 0 15px var(--roxo);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      transform: scale(1.1);
+      background: linear-gradient(135deg, var(--azul), var(--roxo), var(--neon-green));
+      color: #fff;
+      box-shadow: 0 0 25px var(--neon-green), 0 0 45px var(--azul);
+    }
+
+    h2 {
+      margin-top: 25px;
+      font-size: 1rem;
+      text-shadow: 0 0 10px var(--roxo);
+      min-height: 30px;
+    }
+
+    .jackpot {
+      color: var(--dourado);
+      animation: jackpotBlink 0.6s infinite alternate;
+    }
+
+    @keyframes jackpotBlink {
+      from { text-shadow: 0 0 10px var(--dourado), 0 0 20px var(--neon-green); }
+      to   { text-shadow: 0 0 25px var(--roxo), 0 0 40px var(--azul); }
+    }
+
+    /* Estilo de roleta */
+    .roleta {
+      color: var(--azul);
+      animation: blink 0.1s infinite alternate;
+    }
+
+    @keyframes blink {
+      from { opacity: 0.4; }
+      to   { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <h1>🎰 Acerte o Número 🎰</h1>
+
+  <form id="gameForm">
+    <p>Seu chute:</p>
+    <input type="number" id="inChute" required>
+    <br>
+    <input type="submit" value="Tente a Sorte">
+  </form>
+
+  <h2 id="resultado"></h2>
+
+  <!-- Sons -->
+  <audio id="soundWin" src="sons/moedas.mp3"></audio>
+  <audio id="soundLose" src="sons/erro.mp3"></audio>
+
+  <script>
+  const form = document.getElementById("gameForm");
+  const input = document.getElementById("inChute");
+  const resultado = document.getElementById("resultado");
+
+  const soundWin = document.getElementById("soundWin");
+  const soundLose = document.getElementById("soundLose");
+
+  const numeroSecreto = Math.floor(Math.random() * 10) + 1;
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const chute = Number(input.value);
+
+    // Animação de roleta
+    let contador = 0;
+    resultado.className = "roleta";
+    const intervalo = setInterval(() => {
+      resultado.textContent = Math.floor(Math.random() * 10) + 1;
+      contador++;
+      if (contador > 15) { // 15 piscadas (~1,5s)
+        clearInterval(intervalo);
+
+        // Revela o resultado
+        if (chute === numeroSecreto) {
+          resultado.textContent = "🎉 JACKPOT!!! Você acertou!";
+          resultado.className = "jackpot";
+          soundWin.play();
+        } else if (chute > numeroSecreto) {
+          resultado.textContent = "❌ Errou! O número é menor!";
+          resultado.className = "";
+          soundLose.play();
+        } else {
+          resultado.textContent = "❌ Errou! O número é maior!";
+          resultado.className = "";
+          soundLose.play();
+        }
+      }
+    }, 100); // << aqui sim fecha o setInterval certinho
+  });
+</script>
+
+</body>
+</html>
+
