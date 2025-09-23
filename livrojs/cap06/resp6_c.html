@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>exercicio 6.c</title>
+    <title>Exemplo 6.C</title>
     <link rel="stylesheet" href="css/estilo.css">
-    <link rel="icon" href="img/livrojs.png">
+    <link rel="icon" href="img/livrojs.png" type="image/png">
 </head>
-
 <body>
-    <img src="img/exerc.jpg" alt="Revenda Herbie" class="alta">
-    <h1>aprovados</h1>
+    <img src="img/exerc.jpg" alt="Concurso" class="alta">
+
+    <h1>Programa Concurso</h1>
     <form>
-        <p>candidato: <input type="text" id="inNome" required autofocus></p>
-        <p>nº Acertos:
-            <input type="number" id="inAcertos" required>
+        <p>
+            Candidato:
+            <input type="text" id="inCandidato" required autofocus>                   
+        </p>
+        <p>
+           Nº Acertos:
+            <input type="number" id="inAcertos">
             <input type="submit" value="Adicionar">
         </p>
-        <input type="button" value="Listar Todos" id="btListar">
-        <input type="button" value="Arpvados 2º Etapa" id="btArpovados">
-    </form>
-    <pre></pre>
-    <script src="js/resp6_c.js"></script>
-</body>
 
+        <input type="button" value="Listar Todos" id="btListar">
+        <input type="button" value="Aprovados 2º Etapa" id="btAprovados">        
+
+    </form>
+  <pre></pre>
+   <script src="js/resp6_c.js"></script> 
+</body>
 </html>
