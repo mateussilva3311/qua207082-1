@@ -1,0 +1,19 @@
+<script>
+    //programa que lê um enúciado e informa o número de palavras
+    // lê o anúncio
+    const anuncio = prompt("Anúncio: ")
+    // inicializa contador
+    let qtEspacos = 0
+    // obtém o tamanho
+    const tam = anuncio.length
+    // percorre os caracteres do anúncio
+    for (let i = 0; i < tam; i++) {
+        // se encontrou um espaço
+        if (anuncio.charAt(i) == " ") {
+            // incrementa contador
+            qtEspacos++
+        }
+    }
+    // exibe anúncio e número de palavras (que é o no de espaços + 1)
+    alert(`Anúncio: ${anuncio}\nNº Palavras: ${(qtEspacos + 1)}`)
+</script>

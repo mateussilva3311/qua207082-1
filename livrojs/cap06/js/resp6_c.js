@@ -2,7 +2,7 @@ const frm = document.querySelector("form")
 const resp = document.querySelector("pre")
 
 const candidatos = []
-//incluir candidatos fixas
+
 candidatos.push({nome:"André", acertos:35})
 candidatos.push({nome:"Bianca", acertos:29})
 candidatos.push({nome:"Carlos", acertos:27})
@@ -17,13 +17,13 @@ frm.btListar.addEventListener("click", ()=>{
         return
     }
 
-    // método reduce() concatena uma string, obtendo nome e idade
+    resp.innerText = ""
     const lista = candidatos.reduce((acumulador, candidato) => 
         acumulador + candidato.nome + ` - ${candidato.acertos} acertos \n`,"")
     resp.innerText = `${lista}`
 })
 
-// dispara o evento de click em btListar(equivale a um click no botão)
+
 frm.btListar.dispatchEvent(new Event("click"))
 
 frm.addEventListener("submit", (e) => {
@@ -32,46 +32,29 @@ frm.addEventListener("submit", (e) => {
     const nome = frm.inCandidato.value
     const acertos = Number(frm.inAcertos.value)
 
-    candidatos.push({nome,acertos}) //adiciona dados ao vetor de objetos
+    candidatos.push({nome,acertos}) 
 
-    //limpar os campos do form
+    
     frm.inCandidato.value = ""
     frm.inAcertos.value = ""
     frm.inCandidato.focus()
 
-    // atualiza a lista dos candidatos na tela
+    
     frm.btListar.dispatchEvent(new Event("click"))
 })
 
 frm.btAprovados.addEventListener("click", ()=>{ 
-    const aprovacao = Number(prompt("Número de acertos para aprovação"))
-
-    // se não informou o valor ou valor inválido
-    if(aprovacao == 0 | isNaN(aprovacao)){
-        alert("Informe um valor valido.")
+    const numAcertos = Number(prompt("Número de acertos para Aprovação?"))
+    const aprovados = candidatos.filter(candidatos => candidatos.acertos >= numAcertos)
+    if(aprovados == 0){
+        alert("nenhum candidato foi aprovado")
         return
     }
-
-    const copia = [...candidatos]
-
-    copia.filter(candidato => candidato.acertos >= aprovacao)
-    
-    if(copia.length == 0){
-        alert("Nenhum candidato alcançou a nota para aprovação.")
-        return
+    aprovados.sort((a,b) => b.acertos - a.acertos)
+    resp.innerText = ""
+    for(const candidato of aprovados){
+        const {nome,acertos} = candidato
+        resp.innerText += `${nome} - ${acertos} acertos\n`
     }
-
-    copia.sort((a,b) => b.acertos - a.acertos)
-    
-    let lista = ""  
-    
-
-    for(const candidato of copia){
-        lista += `${candidato.nome} - ${candidato.acertos}\n`
-    }
-    
-    resp.innerText = `Pontos necessários para aprovação: ${aprovacao}\n`
-    resp.innerText += "*".repeat(40)+"\n"
-    resp.innerText += lista
 
 })
