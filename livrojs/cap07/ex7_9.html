@@ -1,0 +1,9 @@
+<script>
+const hoje = new Date()
+let dia = hoje.getDate()
+let mes = hoje.getMonth()+1
+let ano = hoje.getFullYear()
+dia = dia.toString().padStart(2, "0")
+mes = mes.toString().padStart(2, "0")
+alert(`Data: ${dia}/${mes}/${ano}`)
+</script>   
