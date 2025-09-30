@@ -20,20 +20,35 @@ frm.addEventListener("submit", (e)=>{
 frm.inDescrip.addEventListener("click",()=>{
     /*const mensagem = frm.inMensagem.value
     resp.innerText = mensagem*/
-    const criptografada = frm.inMensagem.value
-    let temp = criptografada.substr(0,criptografada.length/2)
-    const msg =[]
+
+    
+     // criptografado    -> opepreaocmr acld
+    // descriptografado -> compre parcelado
+    const criptografia = frm.inMensagem.value
+    // array para gravar a msg descriptografada
+    const msg = []
+    // metade da palavra
+    let temp = criptografia.substr(0,criptografia.length/2)
+    // variável auxiliar para somar os pares
     let aux = 1
-    for (let i = 0; i < temp.length; i++){
+    // loop para percorrer somente os pares
+    for(let i = 0; i < temp.length;i++){
+        // colocar na posição pares
         msg[aux] = temp.charAt(i)
+        // incremento do próximo numero par
         aux += 2
     }
-
-     temp = criptografada.substr(criptografada.length/2)
-     aux = 0
-    for(let i = 0; i < temp.length; i++){
+    // a segunda metade da palavra
+    temp = criptografia.substr(criptografia.length/2)
+    // variável auxiliar para somar os impares
+    aux = 0
+    // loop para percorrer somente os impares
+    for(let i = 0; i < temp.length;i++){
+        // colocar na posição impar
         msg[aux] = temp.charAt(i)
+        // incremento do próximo numero impar
         aux += 2
-
-}
+    }
+    // escrever mensagemdescriptografada
+    resp.innerText = msg.join("")
 })
