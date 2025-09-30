@@ -6,14 +6,11 @@ frm.addEventListener("submit", (e) => {
     const dataInfra = new Date(frm.inData.value);
     const multa = Number(frm.inValor.value);
 
-    
     const dataLimite = new Date(dataInfra);
     dataLimite.setDate(dataLimite.getDate() + 90);
 
-    
     const valorDesconto = multa * 0.8;
 
-    
     const dia = String(dataLimite.getDate()).padStart(2, "0");
     const mes = String(dataLimite.getMonth() + 1).padStart(2, "0");
     const ano = dataLimite.getFullYear();

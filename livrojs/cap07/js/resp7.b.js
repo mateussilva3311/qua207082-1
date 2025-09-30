@@ -3,8 +3,8 @@ const resp = document.querySelector("pre")
 
 frm.addEventListener("submit", (e) => {
     e.preventDefault()
-    const frase = frm.inFrase.value
-    const fraseEspaco = frase.replace(/ /g, "").toUpperCase() 
+    const frase = frm.inFrase.value.toUpperCase()
+    const fraseEspaco = frase.replace(/ /g, "")
     const tam = frase.length
     let inverso =""
    
@@ -18,6 +18,6 @@ frm.addEventListener("submit", (e) => {
     if (fraseEspaco == inverso){
         resp.innerText = `${frase} é um palíndromo`
     } else {
-        resp.innerText = `${frase} NÃO é palíndromo`
+        resp.innerText = `${frase} não é um palíndromo`
     }
 })

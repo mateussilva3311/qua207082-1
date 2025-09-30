@@ -18,6 +18,22 @@ frm.addEventListener("submit", (e)=>{
 })
 
 frm.inDescrip.addEventListener("click",()=>{
-    const mensagem = frm.inMensagem.value
-    resp.innerText = mensagem
+    /*const mensagem = frm.inMensagem.value
+    resp.innerText = mensagem*/
+    const criptografada = frm.inMensagem.value
+    let temp = criptografada.substr(0,criptografada.length/2)
+    const msg =[]
+    let aux = 1
+    for (let i = 0; i < temp.length; i++){
+        msg[aux] = temp.charAt(i)
+        aux += 2
+    }
+
+     temp = criptografada.substr(criptografada.length/2)
+     aux = 0
+    for(let i = 0; i < temp.length; i++){
+        msg[aux] = temp.charAt(i)
+        aux += 2
+
+}
 })
