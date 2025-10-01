@@ -1,0 +1,21 @@
+<script>
+    const Calculamedia = (...notas)=>{
+        const num = notas.length
+        if (num == 0){
+            console.log("informe, no minimo, 1 nota")
+            return
+        }
+        let soma = 0
+        for (const nota of notas){
+            soma+=nota
+        }
+        const media = soma / num
+        console.log(`media: ${media.toFixed(2)}`)
+
+    }
+    //exemplo chamando a fuction calcilamedia
+    Calculamedia(6,7,8)
+    Calculamedia(2,18)
+    Calculamedia(7.5,10,8,9.5)
+    Calculamedia()//vai retomar "informe, no minimo, 1 nota"
+</script>
