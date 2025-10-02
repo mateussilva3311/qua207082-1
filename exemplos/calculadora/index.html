@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>caculadora</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="calculadora">
+        <input type="text" id="visor" readonly>
+        <div id="botoes">
+            <button onclick="limpar('c')">c</button>
+            <button onclick="apagar('←')">←</button>
+            <button onclick="adicionar('%')">%</button>
+            <button onclick="adicionar('/')" class="operador">/</button>
+            <button onclick="adicionar('7')">7</button>
+            <button onclick="adicionar('8')">8</button>
+            <button onclick="adicionar('9')">9</button>
+            <button onclick="adicionar('*')" class="operador">*</button>
+            <button onclick="adicionar('4')">4</button>
+            <button onclick="adicionar('5')">5</button>
+            <button onclick="adicionar('6')">6</button>
+            <button onclick="adicionar('-')" class="operador">-</button>
+            <button onclick="adicionar('1')">1</button>
+            <button onclick="adicionar('2')">2</button>
+            <button onclick="adicionar('3')">3</button>
+            <button onclick="adicionar('+')" class="operador">+</button>
+            <button onclick="adicionar('0')">0</button>
+            <button onclick="adicionar('.')">.</button>
+            <button onclick="calcular('=')" class="operador" style="grid-column: span 2;">=</button>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
