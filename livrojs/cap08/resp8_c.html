@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>resposta 8.c</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="icon" href="img/livrojs.png" type="image/png">
+</head>
+
+<body>
+    <img src="img/exerc.jpg" alt="VETERINARIA" class="normal">
+    <h1> Veterinaria Avenida </h1>
+    <form>
+        <p>valor da vacina:
+            <input type="text" id="inData" autofocus required>
+        </p>
+        <p>
+            <input type="radio" name="produto" id="rbSimConvenio" checked autofocus> sim
+            <input type="radio" name="produto" id="rbNaoConvenio"> não
+
+            <select id="inSimConvenio">
+                <option value=“AmigodosAnimais”;>Amigo dos Animais</option>
+                <option value=“SaúdeAnimal”>SaúdeAnimal</option>
+            </select>
+
+            <select id="inNaoConvenio" class="oculta">
+                <option value=“AmigodosAnimais”;>não tem Convenio</option>
+            </select>
+
+        </p>
+        <input type="submit" value="Calcular data limite e valor com desconto">
+
+    </form>
+
+    <pre></pre>
+    <script src="js/resp8.c.js"></script>
+</body>
+
+</html>
