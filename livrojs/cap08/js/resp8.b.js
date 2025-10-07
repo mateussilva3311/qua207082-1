@@ -10,7 +10,7 @@ frm.addEventListener("submit", (e) => {
     }
 
     const obterSobrenome = (nome) => {
-        const partes = nome.trim().split(" ");
+        const partes = nome.split(" ");
         return partes[partes.length - 1].toLowerCase();
     }
 
@@ -21,7 +21,7 @@ frm.addEventListener("submit", (e) => {
     }
     resp.innerText = `senha inicial: ${obterSobrenome(nome)}${contarVogais(nome)}`
 
-   
+
 
 })
 
