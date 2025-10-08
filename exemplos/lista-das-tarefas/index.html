@@ -12,16 +12,44 @@
     <div class="container">
         <h1>Lista de Tarefas</h1>
         <form>
-            <div>
-                <label for="inItem" class="form-label">Item</label>
-                <input type="text" id="inItem" class="form-control">
+            <div class="row">
+                <div class="col-md-8">
+                    <label for="inItem" class="form-label">Item</label>
+                    <input type="text" id="inItem" class="form-control" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="inStatus" class="form-label">Status</label>
+                    <select name="status" id="inStatus" class="form-select" required>
+                        <option value="">selecionar</option>
+                        <option>em fila</option>
+                        <option>iniciado</option>
+                        <option>concluido</option>
+                    </select>
+                </div>
             </div>
-            <div>
-                <label for="inStatus" class="form-label">Status</label>
-                <input type="text" id="inStatus" class="form-control">
+            <div class="float-end">
+                <input type="button" class="mt-3 btn btn-danger" value="apagar" id="btApagar">
+                <input type="submit" class="mt-3 btn btn-secondary" value="gravar" id="btGravar">
+                <input type="reset" onclick="limpar()" class="mt-3 btn btn-primary" value="novo" id="btNovo">
             </div>
+            <input type="hidden" id="inIndex">
         </form>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Itens da lista</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Lista Vazia</td>
+                    <td>-</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
