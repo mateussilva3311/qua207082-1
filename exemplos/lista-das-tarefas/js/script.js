@@ -1,6 +1,8 @@
 const frm = document.querySelector("form")
 const tbody = document.querySelector("tbody")
 let lsItem = []
+let filtro = localStorage.getItem("filtro") 
+filtro = filtro == null ? "" : filtro
 frm.addEventListener("submit", (e) => {
     e.preventDefault()
     const item = frm.inItem.value
@@ -9,7 +11,6 @@ frm.addEventListener("submit", (e) => {
     // incluir ou atualizar
     index == "" ? lsItem.push({ item, status }) : lsItem[index] = { item, status }
     atualizarTabela()
-
 })
 
 
@@ -22,11 +23,11 @@ function prepararEdicao(index) {
 
 frm.btApagar.addEventListener("click", () => {
     const index = frm.inIndex.value
-    if (index == ""){
+    if (index == "") {
         alert("Necessário selecionar 1 item!")
         return
     }
-    if(confirm("deseja realmente apagar esse item?") == false){
+    if (confirm("deseja realmente apagar esse item?") == false) {
         return
     }
     lsItem.splice(index, 1)
@@ -36,12 +37,13 @@ frm.btApagar.addEventListener("click", () => {
 
 function atualizarTabela() {
     limpar()
-    localStorage.setItem("lsItem",JSON.stringify(lsItem))
+    localStorage.setItem("lsItem", JSON.stringify(lsItem))
     tbody.innerHTML = ""
-
     let cont = 0
     for (i of lsItem) {
-        tbody.innerHTML += `<tr onclick="prepararEdicao(${cont})"><td>${i.item}</td><td>${i.status}</td></tr>`
+        if (filtro == "" || filtro.includes(i.status)) {
+            tbody.innerHTML += `<tr onclick="prepararEdicao(${cont})"><td>${i.item}</td><td>${i.status}</td></tr>`
+        }
         cont++
     }
 }
@@ -53,7 +55,24 @@ function limpar() {
     frm.btApagar.disabled = true
 }
 
-if(localStorage.getItem('lsItem') != null){
+if (localStorage.getItem('lsItem') != null) {
     lsItem = JSON.parse(localStorage.getItem('lsItem'))
     atualizarTabela()
+}
+
+const lsfiltro = frm.querySelectorAll("input[type='checkbox']")
+for (const bt of lsfiltro) {
+    bt.addEventListener("click", filtrar)
+    if (filtro.includes(bt.value)) {
+        bt.checked = true
+    }
+}
+
+function filtrar() {
+    filtro = ""
+    for (const bt of lsfiltro) {
+        filtro += bt.checked ? bt.value + ',' : ""
+    }
+    atualizarTabela()
+    localStorage.setItem("filtro", filtro)
 }
