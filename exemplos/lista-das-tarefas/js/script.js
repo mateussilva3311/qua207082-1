@@ -1,7 +1,7 @@
 const frm = document.querySelector("form")
 const tbody = document.querySelector("tbody")
 let lsItem = []
-let filtro = localStorage.getItem("filtro") 
+let filtro = localStorage.getItem("filtro")
 filtro = filtro == null ? "" : filtro
 frm.addEventListener("submit", (e) => {
     e.preventDefault()
@@ -35,6 +35,12 @@ frm.btApagar.addEventListener("click", () => {
     frm.inIndex.value = ""
 })
 
+const cores = {
+    "em fila": "bg-secondary-subtle",
+    "iniciado": "bg-primary-subtle",
+    "concluído": "bg-danger-subtle"
+}
+
 function atualizarTabela() {
     limpar()
     localStorage.setItem("lsItem", JSON.stringify(lsItem))
@@ -42,7 +48,7 @@ function atualizarTabela() {
     let cont = 0
     for (i of lsItem) {
         if (filtro == "" || filtro.includes(i.status)) {
-            tbody.innerHTML += `<tr onclick="prepararEdicao(${cont})"><td>${i.item}</td><td>${i.status}</td></tr>`
+            tbody.innerHTML += `<tr onclick="prepararEdicao(${cont})"><td>${i.item}</td><td class="${cores[i.status]}">${i.status}</td></tr>`
         }
         cont++
     }
