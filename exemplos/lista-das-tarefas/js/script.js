@@ -38,7 +38,7 @@ frm.btApagar.addEventListener("click", () => {
 const cores = {
     "em fila": "bg-secondary-subtle",
     "iniciado": "bg-primary-subtle",
-    "concluído": "bg-danger-subtle"
+    "concluido": "bg-danger-subtle",
 }
 
 function atualizarTabela() {
