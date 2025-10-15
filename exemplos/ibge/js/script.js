@@ -12,7 +12,8 @@ function carreguarselect(select, url) {
         for (const i of ls) {
             const option = document.createElement("option")
             option.value = i.id
-            option.innerText = `${i.nome} (${i.sigla})`
+            option.innerText = i.nome 
+            option.innerText += i.sigla != undefined ? `(${i.sigla})` : ""
             select.appendChild(option)
         }
     })
@@ -21,7 +22,7 @@ function carreguarselect(select, url) {
 carreguarselect(frm.inRegiao, "regioes")
 carreguarselect(frm.inEstado, "estados")
 
-frm.inEstado.addEventListener("change",()=>{
+frm.inEstado.addEventListener("change", () => {
     const uf = frm.inEstado.value
     frm.inMunicipio.innerHTML = ""
     carreguarselect(frm.inMunicipio, `estados/${uf}/municipios`)
