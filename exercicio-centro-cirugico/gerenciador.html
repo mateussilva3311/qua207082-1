@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gerenciador</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="icon" href="img/hospital.png" type="image/png">
+</head>
+
+<body>
+
+  <!-- Container -->
+  <div class="container">
+    <h1>Gerenciar Painel dos Pacientes no Centro Cirúrgico</h1>
+    <hr>
+    <form class="mt-5" action="" method="">
+      <!-- 1ª Linha -->
+      <div class="row">
+
+        <!-- Nome -->
+        <div class="col-lg-6">
+          <div class="mb-3">
+            <label for="inPaciente" class="form-label">Nome Paciente:</label>
+            <input type="text" class="form-control" id="inPaciente" placeholder="Nome do Paciente" required>
+          </div>
+        </div>
+
+        <!-- Status -->
+        <div class="col-lg-3">
+          <div class="mb-3">
+            <label for="inStatus" class="form-label">Status:</label>
+            <select name="status" id="inStatus" class="form-select" aria-label="Status" required>
+              <option selected disabled>Defina um Status</option>
+              <option value="Pré-Operatório">Pré-Operatório</option>
+              <option value="Em recuperação">Em recuperação</option>
+              <option value="Transferido">Transferido</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Local -->
+        <div class="col-lg-3">
+          <div class="mb-3">
+            <label for="inLocal" class="form-label">Local:</label>
+            <input type="text" class="form-control" id="inLocal" placeholder="Sala/Quarto" required>
+          </div>
+        </div>
+
+      </div>
+
+
+      <!-- 2ª Linha -->
+      <div class="row">
+
+        <!-- Inicio Previsto -->
+        <div class="col-lg-3">
+          <div class="mb-3">
+            <label for="inInicioPrevisto" class="form-label">Início Previsto:</label>
+            <input type="time" class="form-control" id="inInicioPrevisto" required>
+          </div>
+        </div>
+
+        <!-- Inicio Cirurgia -->
+        <div class="col-lg-3">
+          <div class="mb-3">
+            <label for="inInicioCirurgia" class="form-label">Início Cirurgia:</label>
+            <input type="time" class="form-control" id="inInicioCirurgia" required>
+          </div>
+        </div>
+
+        <!-- Fim Cirurgia -->
+        <div class="col-lg-3">
+          <div class="mb-3">
+            <label for="inFimCirurgia" class="form-label">Fim da Cirurgia:</label>
+            <input type="time" class="form-control" id="inFimCirurgia" required>
+          </div>
+        </div>
+
+        <!-- Saída Prevista -->
+        <div class="col-lg-3">
+          <div class="mb-3">
+            <label for="inSaidaPrevisto" class="form-label">Saída Prevista:</label>
+            <input type="time" class="form-control" id="inSaidaPrevisto" required>
+          </div>
+        </div>
+
+      </div>
+
+      <div>
+        <input type="reset" onclick="limpar()" class="mt-3 btn btn-secondary" value="Novo" id="btNovo">
+        <input type="submit" class="mt-3 btn btn-primary" value="Gravar" id="btGravar">
+        <input type="button" class="mt-3 btn btn-danger" value="Apagar" id="btApagar" disabled>
+      </div>
+
+      <input type="hidden" id="inIndex">
+
+    </form>
+
+    <hr class="mt-5">
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th width="40%">Nome do Paciente</th>
+          <th width="30%">Status</th> 
+          <th>Início Previsto</th>
+          <th>Início da Cirurgia</th>
+          <th>Fim da Cirurgia</th>
+          <th>Saída Prevista</th>
+        </tr>
+      </thead>
+
+      <tbody id="lsItem" style="cursor: pointer;">
+        <tr>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+  </div>
+  <!-- Fim do Container -->
+  <!-- JS Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+    <script src="js/scriptger.js"></script>
+</body>
+
+</html>

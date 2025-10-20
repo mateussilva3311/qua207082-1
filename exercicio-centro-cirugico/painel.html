@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Painel Status</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="icon" href="img/hospital.png" type="image/png">
+</head>
+
+<body>
+
+  <script>
+
+    var myVar = setInterval(myTimer, 1000);
+
+    function myTimer() {
+
+      var d = new Date();
+
+      document.getElementById("dt-hora").innerHTML = d.getDate() + '/' + (d.getMonth() + 1) + '/' + (d.getFullYear()) + ' ' + d.toLocaleTimeString();
+
+      const dados = localStorage.getItem('lsItem');
+
+      const coresStatus = {
+        "Pré-Operatório": "#fbd972",
+        "Em recuperação": "#89e89f",
+        "Transferido": "#b8daff"
+      };
+
+      if (dados) {
+        const itens = JSON.parse(dados);
+        let linhas = '';
+        for (const i of itens) {
+          const cor = coresStatus[i.status] || "#ffffff";
+          linhas += `
+        <tr>
+          <td style="font-weight:bold;">${i.item}</td>
+        <td style="background-color:${cor}; font-weight:bold;">
+          ${i.status} (${i.local})
+        </td>       
+        <td style="font-weight:bold;">${i.inprevisto}</td>
+        <td style="font-weight:bold;">${i.incirurgia}</td>
+        <td style="font-weight:bold;">${i.fimcirurgia}</td>
+        <td style="font-weight:bold;">${i.saidaprev}</td> 
+        </tr>`;
+        }
+        document.getElementById("lsItem").innerHTML = linhas;
+      }
+    }
+    documento.myTimer();
+
+  </script>
+
+  <!-- Container -->
+  <div class="container">
+
+    <nav class="navbar navbar-expand-lg bg-body">
+      <div class="">
+
+        <a class="navbar-brand" href="#">
+          <img src="img/bsb.png" alt="Brasilia" width="40" height="30">
+        </a>
+
+        <a class="navbar-brand" href="#">Hospital Regional de Taguatinga | Secretaria de Estado de Saúde do Distrito
+          Federal | Pacientes no Centro Cirúrgico -
+          <span id="dt-hora"></span>
+        </a>
+
+      </div>
+    </nav>
+
+    <hr class="mt-5">
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th width="40%">Nome do Paciente</th>
+          <th width="30%">Status</th> 
+          <th>Início Previsto</th>
+          <th>Início da Cirurgia</th>
+          <th>Fim da Cirurgia</th>
+          <th>Saída Prevista</th>
+        </tr>
+      </thead>
+
+      <tbody id="lsItem" class="">
+
+      </tbody>
+    </table>
+
+  </div>
+  
+  <!-- Fim do Container -->
+  <!-- JS Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
