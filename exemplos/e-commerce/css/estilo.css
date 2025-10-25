@@ -63,7 +63,7 @@ p {
     font-weight: bold;
 }
 
-#produtos {
+.produtos {
     margin-top: 80px;
     display: grid;
     grid-template-columns: auto auto auto;
@@ -81,7 +81,7 @@ p {
     position: relative;
 }
 
-.produto > div > img{
+.produto>div>img {
     display: none;
 }
 
@@ -97,18 +97,18 @@ p {
 
 .produto:hover {
     box-shadow: 0px 0px 7px 0px #3b0a0a;
-    
+
 }
 
-.marcado{
+.marcado {
     background-color: #3b0a0a;
 }
 
-.marcado p{
+.marcado p {
     color: white;
 }
 
-.marcado > img{
+.marcado>img {
     opacity: 0.7;
 }
 
@@ -134,4 +134,58 @@ p {
 .valor {
     margin-top: 20px;
     font-weight: bold;
+}
+
+.ocultar{
+    display: none;
+}
+
+.carrinho{
+    margin-top: 80px;
+}
+
+td{
+    background-color: #3b0a0a;
+    color: white;
+    padding: 5px;
+    text-align: center;
+}
+
+td[onclick]:hover{
+    cursor: pointer;
+    background-color: #775858;
+}
+
+form{
+    margin-top: 20px;
+}
+
+form label{
+    color: #3b0a0a;
+    font-family: "Trocchi", serif;
+}
+
+form input{
+    border: none;
+}
+
+form #inNome{
+    padding: 5px;
+    width: 300px;
+    border: #3b0a0a solid 1px;
+}
+
+form input[value] {
+    background-color: #3b0a0a;
+    padding: 5px 10px;
+    color: white;
+    font-size: large;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+form input[value]:hover{
+    background-color: rgb(215, 212, 212);
+    color: #3b0a0a;
+    border: #3b0a0a solid 1px;
 }

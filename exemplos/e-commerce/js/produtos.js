@@ -29,22 +29,26 @@ const lsProduto = [
         img: "img/vela-05.png",
         valor: 39
     },
-    {   nome: "minha rotina",
+    {
+        nome: "minha rotina",
         descricao: "vela aromatica - 300g",
         img: "img/vela-06.png",
         valor: 39
     },
-    {   nome: "vida no campo",
+    {
+        nome: "vida no campo",
         descricao: "vela aromatica - 300g",
         img: "img/vela-07.png",
         valor: 39
     },
-    {   nome: "meu mundo",
+    {
+        nome: "meu mundo",
         descricao: "vela aromatica - 300g",
         img: "img/vela-08.png",
         valor: 39
     },
-    {   nome: "floresta vivas",
+    {
+        nome: "floresta vivas",
         descricao: "vela aromatica - 300g",
         img: "img/vela-09.png",
         valor: 39
