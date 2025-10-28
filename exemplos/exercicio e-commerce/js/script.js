@@ -56,7 +56,7 @@ function atualizartb() {
         const p = lsProduto[i]
         if (p.qt > 0) {
             tbody.innerHTML += `<tr>
-            <td>${p.nome}</td>
+            <td><img src="${p.img}" alt="${p.nome}" class="img-carrinho"> ${p.nome}</td>
             <td>${p.qt}</td>
             <td>${p.valor.toFixed(2)}</td>
             <td>${(p.qt * p.valor).toFixed(2)}</td>
