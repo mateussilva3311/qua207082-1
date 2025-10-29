@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,9 +40,17 @@
     }
 
     @keyframes backgroundMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
     }
 
     h1 {
@@ -52,8 +61,13 @@
     }
 
     @keyframes neonBlink {
-      from { text-shadow: 0 0 8px var(--neon-green), 0 0 15px var(--azul); }
-      to   { text-shadow: 0 0 25px var(--dourado), 0 0 40px var(--roxo); }
+      from {
+        text-shadow: 0 0 8px var(--neon-green), 0 0 15px var(--azul);
+      }
+
+      to {
+        text-shadow: 0 0 25px var(--dourado), 0 0 40px var(--roxo);
+      }
     }
 
     form {
@@ -62,9 +76,9 @@
       padding: 25px;
       border-radius: 20px;
       border: 4px solid var(--dourado);
-      box-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
       display: inline-block;
       overflow: hidden;
+      animation: neonGlow 2s infinite alternate;
     }
 
     form::before {
@@ -75,21 +89,14 @@
       right: -4px;
       bottom: -4px;
       border-radius: 20px;
-      background: repeating-linear-gradient(
-        90deg,
-        var(--dourado) 0,
-        var(--dourado) 10px,
-        transparent 10px,
-        transparent 20px
-      );
+      background: repeating-linear-gradient(90deg,
+          var(--dourado) 0,
+          var(--dourado) 10px,
+          transparent 10px,
+          transparent 20px);
       background-size: 40px 40px;
-      animation: marquee 2s linear infinite;
+      animation: marquee 2.5s linear infinite;
       z-index: -1;
-    }
-
-    @keyframes marquee {
-      0% { background-position: 0 0; }
-      100% { background-position: 40px 0; }
     }
 
     input[type="number"] {
@@ -110,7 +117,7 @@
       box-shadow: 0 0 12px var(--neon-green);
     }
 
-    input[type="submit"] {
+    .btn-neon {
       background: linear-gradient(135deg, var(--roxo), var(--azul));
       border: 2px solid var(--neon-green);
       border-radius: 10px;
@@ -120,9 +127,11 @@
       cursor: pointer;
       box-shadow: 0 0 15px var(--roxo);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      font-family: "Press Start 2P", cursive;
+      font-size: 0.8rem;
     }
 
-    input[type="submit"]:hover {
+    .btn-neon:hover {
       transform: scale(1.1);
       background: linear-gradient(135deg, var(--azul), var(--roxo), var(--neon-green));
       color: #fff;
@@ -142,22 +151,55 @@
     }
 
     @keyframes jackpotBlink {
-      from { text-shadow: 0 0 10px var(--dourado), 0 0 20px var(--neon-green); }
-      to   { text-shadow: 0 0 25px var(--roxo), 0 0 40px var(--azul); }
+      from {
+        text-shadow: 0 0 10px var(--dourado), 0 0 20px var(--neon-green);
+      }
+
+      to {
+        text-shadow: 0 0 25px var(--roxo), 0 0 40px var(--azul);
+      }
     }
 
-    /* Estilo de roleta */
     .roleta {
       color: var(--azul);
       animation: blink 0.1s infinite alternate;
     }
 
     @keyframes blink {
-      from { opacity: 0.4; }
-      to   { opacity: 1; }
+      from {
+        opacity: 0.4;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes marquee {
+      0% {
+        background-position: 0% 0;
+      }
+
+      100% {
+        background-position: 100% 0;
+      }
+    }
+
+    @keyframes neonGlow {
+      from {
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.5),
+          0 0 20px rgba(255, 215, 0, 0.3);
+      }
+
+      to {
+        box-shadow: 0 0 30px var(--dourado),
+          0 0 50px var(--roxo),
+          0 0 70px var(--azul);
+      }
     }
   </style>
 </head>
+
 <body>
   <h1>🎰 Acerte o Número 🎰</h1>
 
@@ -165,57 +207,84 @@
     <p>Seu chute:</p>
     <input type="number" id="inChute" required>
     <br>
-    <input type="submit" value="Tente a Sorte">
+    <input type="submit" value="Tente a Sorte" class="btn-neon">
   </form>
 
   <h2 id="resultado"></h2>
 
-  <!-- Sons -->
+  <button type="button" id="btnReiniciar" class="btn-neon" style="display: none; margin-top: 20px;">
+    Jogar Novamente
+  </button>
+
   <audio id="soundWin" src="sons/moedas.mp3"></audio>
   <audio id="soundLose" src="sons/erro.mp3"></audio>
 
   <script>
-  const form = document.getElementById("gameForm");
-  const input = document.getElementById("inChute");
-  const resultado = document.getElementById("resultado");
+    const form = document.getElementById("gameForm");
+    const input = document.getElementById("inChute");
+    const resultado = document.getElementById("resultado");
+    const btnReiniciar = document.getElementById("btnReiniciar");
 
-  const soundWin = document.getElementById("soundWin");
-  const soundLose = document.getElementById("soundLose");
+    const soundWin = document.getElementById("soundWin");
+    const soundLose = document.getElementById("soundLose");
 
-  const numeroSecreto = Math.floor(Math.random() * 10) + 1;
+    let numeroSecreto = Math.floor(Math.random() * 100) + 1;
+    let tentativas = 0;
 
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const chute = Number(input.value);
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const chute = Number(input.value);
+      tentativas++;
 
-    // Animação de roleta
-    let contador = 0;
-    resultado.className = "roleta";
-    const intervalo = setInterval(() => {
-      resultado.textContent = Math.floor(Math.random() * 10) + 1;
-      contador++;
-      if (contador > 15) { // 15 piscadas (~1,5s)
-        clearInterval(intervalo);
+      let contador = 0;
+      resultado.className = "roleta";
+      const intervalo = setInterval(() => {
+        resultado.textContent = Math.floor(Math.random() * 100) + 1;
+        contador++;
+        if (contador > 15) {
+          clearInterval(intervalo);
 
-        // Revela o resultado
-        if (chute === numeroSecreto) {
-          resultado.textContent = "🎉 JACKPOT!!! Você acertou!";
-          resultado.className = "jackpot";
-          soundWin.play();
-        } else if (chute > numeroSecreto) {
-          resultado.textContent = "❌ Errou! O número é menor!";
-          resultado.className = "";
-          soundLose.play();
-        } else {
-          resultado.textContent = "❌ Errou! O número é maior!";
-          resultado.className = "";
-          soundLose.play();
+          if (chute === numeroSecreto) {
+            resultado.textContent = `🎉 JACKPOT!!! Você acertou em ${tentativas} tentativas!`;
+            resultado.className = "jackpot";
+            soundWin.play();
+
+            form.style.display = 'none';
+            btnReiniciar.style.display = 'block';
+
+          } else if (chute > numeroSecreto) {
+            resultado.textContent = "❌ Errou! O número é menor!";
+            resultado.className = "";
+            soundLose.play();
+          } else {
+            resultado.textContent = "❌ Errou! O número é maior!";
+            resultado.className = "";
+            soundLose.play();
+          }
         }
-      }
-    }, 100); // << aqui sim fecha o setInterval certinho
-  });
-</script>
+      }, 100);
+    });
+
+    function reiniciarJogo() {
+
+      numeroSecreto = Math.floor(Math.random() * 100) + 1;
+
+      tentativas = 0;
+
+      resultado.textContent = "";
+      resultado.className = "";
+
+      input.value = "";
+
+      btnReiniciar.style.display = 'none';
+
+      form.style.display = 'block';
+    }
+
+    btnReiniciar.addEventListener("click", reiniciarJogo);
+
+  </script>
 
 </body>
-</html>
 
+</html>

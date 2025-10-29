@@ -196,7 +196,7 @@ form #inNome{
 form input[value] {
     background-color: 	LightCyan;
     padding: 5px 10px;
-    color: white;
+    color: black;
     font-size: large;
     cursor: pointer;
     border-radius: 10px;
